@@ -34,13 +34,14 @@ import theultimatetic.KI;
 public final class spielfeld extends javax.swing.JFrame {
 
     public static ArrayList<String> liste0 = new ArrayList();
+    int Punkte = 0;
 
     /**
      * Creates new form Spielfeld
      */
     public spielfeld() {
         initComponents();
-        this.check();
+        this.startup();
     }
 
     /**
@@ -226,13 +227,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton1.getText())) {
             this.jButton1.setText("x");
+            spielfeld.liste0.add(0, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -245,13 +246,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton2.getText())) {
             this.jButton2.setText("x");
+            spielfeld.liste0.add(1, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -264,13 +265,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton3.getText())) {
             this.jButton3.setText("x");
+            spielfeld.liste0.add(2, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -283,13 +284,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton4.getText())) {
             this.jButton4.setText("x");
+            spielfeld.liste0.add(3, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -302,13 +303,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:        
         if ("-".equals(this.jButton5.getText())) {
             this.jButton5.setText("x");
+            spielfeld.liste0.add(4, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -321,13 +322,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton6.getText())) {
             this.jButton6.setText("x");
+            spielfeld.liste0.add(5, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -340,13 +341,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton7.getText())) {
             this.jButton7.setText("x");
+            spielfeld.liste0.add(6, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -359,13 +360,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton8.getText())) {
             this.jButton8.setText("x");
+            spielfeld.liste0.add(7, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -378,13 +379,13 @@ public final class spielfeld extends javax.swing.JFrame {
         // TODO add your handling code here:
         if ("-".equals(this.jButton9.getText())) {
             this.jButton9.setText("x");
+            spielfeld.liste0.add(8, "x");
             this.jLabel3.setText("");
-            this.save();
-            this.check();
+            this.write();
             this.win();
             KI a = new KI();
-            a.berechnungen();
-            this.check();
+            a.berechnungen(0);
+            this.write();
             this.win();
 
         } else {
@@ -412,27 +413,9 @@ public final class spielfeld extends javax.swing.JFrame {
         this.jButton7.setText("-");
         this.jButton8.setText("-");
         this.jButton9.setText("-");
-        jLabel2.setText("Punkte: 0");
+        jLabel2.setText("Punkte: " + Punkte);
         jLabel3.setText("");
         liste0.clear();
-        
-        this.save();
-        
-        int zufallszahl = (int) (Math.random() * 2);
-        System.out.println("Spieler: " + zufallszahl);
-        
-        if ( zufallszahl == 1 ) {
-            System.out.println("Der Gegner fängt an!!!");
-            this.liste0.add("1");
-            KI b = new KI();
-            b.berechnungen();
-            this.check();
-        }
-    }
-
-    public void save() {
-        liste0.clear();
-
         liste0.add(this.jButton1.getText());
         liste0.add(this.jButton2.getText());
         liste0.add(this.jButton3.getText());
@@ -443,6 +426,24 @@ public final class spielfeld extends javax.swing.JFrame {
         liste0.add(this.jButton8.getText());
         liste0.add(this.jButton9.getText());
 
+        int zufallszahl = (int) (Math.random() * 2);
+        System.out.println("Spieler: " + zufallszahl);
+
+        if (zufallszahl == 1) {
+            System.out.println("Der Gegner fängt an!!!");
+            this.jLabel3.setText("Der Gegner fängt an!!!");
+            KI b = new KI();
+            b.berechnungen(1);
+            this.write();
+        } else {
+            System.out.println("Du fängst an!!!");
+            this.jLabel3.setText("Du fängst an!!!");
+        }
+    }
+
+    public void save() {
+
+        System.out.println("Speichere...");
         write a = new write();
         try {
             a.write();
@@ -451,11 +452,11 @@ public final class spielfeld extends javax.swing.JFrame {
         }
     }
 
-    public void check() {
+    public void write() {
         System.out.println("check");
-        read a = new read();
+        System.out.println("Lese neue Positione ab!!!");
+
         try {
-            a.read();
 
             if ("x".equals(liste0.get(0))) {
                 this.jButton1.setText("x");
@@ -511,11 +512,8 @@ public final class spielfeld extends javax.swing.JFrame {
             if ("o".equals(liste0.get(8))) {
                 this.jButton9.setText("o");
             }
-        } catch (FileNotFoundException ex) {
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println("Datei wird neu Angelegt!");
-        } catch (IOException ex) {
-            Logger.getLogger(spielfeld.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Datei kann nicht gelesen werden!!!");
         }
 
     }
@@ -523,77 +521,93 @@ public final class spielfeld extends javax.swing.JFrame {
     public void win() {
 
         DefaultListModel dim = new DefaultListModel();
-        
+
         if ("x".equals(liste0.get(0)) && "x".equals(liste0.get(1)) && "x".equals(liste0.get(2))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(0)) && "o".equals(liste0.get(1)) && "o".equals(liste0.get(2))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(0)) && "x".equals(liste0.get(4)) && "x".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(0)) && "o".equals(liste0.get(4)) && "o".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(0)) && "x".equals(liste0.get(3)) && "x".equals(liste0.get(6))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(0)) && "o".equals(liste0.get(3)) && "o".equals(liste0.get(6))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(1)) && "x".equals(liste0.get(4)) && "x".equals(liste0.get(7))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(1)) && "o".equals(liste0.get(4)) && "o".equals(liste0.get(7))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(2)) && "x".equals(liste0.get(4)) && "x".equals(liste0.get(6))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(2)) && "o".equals(liste0.get(4)) && "o".equals(liste0.get(6))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(2)) && "x".equals(liste0.get(5)) && "x".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(2)) && "o".equals(liste0.get(5)) && "o".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(3)) && "x".equals(liste0.get(4)) && "x".equals(liste0.get(5))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(3)) && "o".equals(liste0.get(4)) && "o".equals(liste0.get(5))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
 
         if ("x".equals(liste0.get(6)) && "x".equals(liste0.get(7)) && "x".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast gewonnen!!!");
             dim.addElement("Sieg");
+            Punkte++;
         }
         if ("o".equals(liste0.get(6)) && "o".equals(liste0.get(7)) && "o".equals(liste0.get(8))) {
             this.jLabel3.setText("Du hast verloren!!!");
             dim.addElement("Niederlage");
+            Punkte--;
         }
         this.jList1.setModel(dim);
 
@@ -616,4 +630,28 @@ public final class spielfeld extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void startup() {
+        liste0.add(this.jButton1.getText());
+        liste0.add(this.jButton2.getText());
+        liste0.add(this.jButton3.getText());
+        liste0.add(this.jButton4.getText());
+        liste0.add(this.jButton5.getText());
+        liste0.add(this.jButton6.getText());
+        liste0.add(this.jButton7.getText());
+        liste0.add(this.jButton8.getText());
+        liste0.add(this.jButton9.getText());
+        try {
+            read a = new read();
+            a.read();
+            System.out.println("Alter Spielstand wird gelesen!!!");
+            this.write();
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Datei konnte nicht gelesen werden!!!");
+            System.out.println("Neue Datei wird bei Spielbeginn erzeugt!!!");
+        } catch (IOException ex) {
+            Logger.getLogger(spielfeld.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

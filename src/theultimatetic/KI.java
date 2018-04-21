@@ -26,17 +26,17 @@ public class KI {
 
     int zufallszahln = 0;
 
-    public void berechnungen() {
+    public void berechnungen(int start) {
 
         /*
         *In die mitte kommen wenn nicht eins daneben
          */
         System.out.println("KI ist am Zug!!!");
 
-        if (spielfeld.liste0.get(9).equals("1")) {
+        if (start == 1) {
+            System.out.println("Erster Zug wird vorbereitet!!!");
             int zufallszahl = (int) (Math.random() * 3);
             System.out.println("Startzug: " + zufallszahl);
-            spielfeld.liste0.remove(9);
 
             this.check(zufallszahl);
 
@@ -53,9 +53,7 @@ public class KI {
                 default:
                     break;
             }
-        }
-
-        if ("x".equals(spielfeld.liste0.get(0))) {
+        } else if ("x".equals(spielfeld.liste0.get(0))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -215,7 +213,7 @@ public class KI {
                 default:
                     break;
             }
-        } else if ("x".equals(spielfeld.liste0.get(8))) {
+        } else if ("x".equals(spielfeld.liste0.get(1))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -255,7 +253,7 @@ public class KI {
                 default:
                     break;
             }
-        } else if ("x".equals(spielfeld.liste0.get(8))) {
+        } else if ("x".equals(spielfeld.liste0.get(3))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -295,7 +293,7 @@ public class KI {
                 default:
                     break;
             }
-        } else if ("x".equals(spielfeld.liste0.get(8))) {
+        } else if ("x".equals(spielfeld.liste0.get(4))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -335,7 +333,7 @@ public class KI {
                 default:
                     break;
             }
-        } else if ("x".equals(spielfeld.liste0.get(8))) {
+        } else if ("x".equals(spielfeld.liste0.get(5))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -375,7 +373,7 @@ public class KI {
                 default:
                     break;
             }
-        } else if ("x".equals(spielfeld.liste0.get(8))) {
+        } else if ("x".equals(spielfeld.liste0.get(7))) {
             int zufallszahl = (int) (Math.random() * 8);
             System.out.println("Startzug: " + zufallszahl);
 
@@ -423,117 +421,115 @@ public class KI {
     public void check(int zufallszahl) {
         while (String.valueOf(zufallszahl).equals(spielfeld.liste0.get(zufallszahl))) {
             if (zufallszahl == 8) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
+                } else if (String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
                     zufallszahln = zufallszahl - 6;
                 }
             }
 
             if (zufallszahl == 7) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                } else if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
+                } else if (String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
                     zufallszahln = zufallszahl - 6;
                 }
             }
 
             if (zufallszahl == 6) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                } else if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
+                } else if (String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
                     zufallszahln = zufallszahl - 6;
                 }
             }
 
             if (zufallszahl == 5) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                } else if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
                 }
             }
 
             if (zufallszahl == 4) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
-                    zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                } else if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl - 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
-                    zufallszahln = zufallszahl - 6;
-                } else if (!String.valueOf(zufallszahl - 4).equals(spielfeld.liste0.get(zufallszahl - 4))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
+                    zufallszahln = zufallszahl + 3;
+                } else if (String.valueOf(zufallszahl - 4).equals(spielfeld.liste0.get(zufallszahl - 4))) {
                     zufallszahln = zufallszahl - 4;
-                } else if (!String.valueOf(zufallszahl - 2).equals(spielfeld.liste0.get(zufallszahl - 2))) {
+                } else if (String.valueOf(zufallszahl - 2).equals(spielfeld.liste0.get(zufallszahl - 2))) {
                     zufallszahln = zufallszahl - 2;
-                } else if (!String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
+                } else if (String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
                     zufallszahln = zufallszahl + 4;
-                } else if (!String.valueOf(zufallszahl + 4).equals(spielfeld.liste0.get(zufallszahl + 4))) {
+                } else if (String.valueOf(zufallszahl + 4).equals(spielfeld.liste0.get(zufallszahl + 4))) {
                     zufallszahln = zufallszahl + 4;
                 }
             }
 
             if (zufallszahl == 3) {
-                if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
+                } else if (String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
                     zufallszahln = zufallszahl + 2;
-                } else if (!String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl - 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
                     zufallszahln = zufallszahl + 3;
                 }
             }
 
             if (zufallszahl == 2) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl - 2).equals(spielfeld.liste0.get(zufallszahl - 2))) {
+                } else if (String.valueOf(zufallszahl - 2).equals(spielfeld.liste0.get(zufallszahl - 2))) {
                     zufallszahln = zufallszahl - 2;
-                } else if (!String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl - 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
+                } else if (String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl - 6))) {
                     zufallszahln = zufallszahl - 6;
                 }
             }
 
             if (zufallszahl == 1) {
-                if (!String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
+                if (String.valueOf(zufallszahl - 1).equals(spielfeld.liste0.get(zufallszahl - 1))) {
                     zufallszahln = zufallszahl - 1;
-                } else if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                } else if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl + 6))) {
+                } else if (String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl + 6))) {
                     zufallszahln = zufallszahl + 6;
                 }
             }
 
             if (zufallszahl == 0) {
-                if (!String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
+                if (String.valueOf(zufallszahl + 1).equals(spielfeld.liste0.get(zufallszahl + 1))) {
                     zufallszahln = zufallszahl + 1;
-                } else if (!String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
+                } else if (String.valueOf(zufallszahl + 2).equals(spielfeld.liste0.get(zufallszahl + 2))) {
                     zufallszahln = zufallszahl - 2;
-                } else if (!String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
+                } else if (String.valueOf(zufallszahl + 3).equals(spielfeld.liste0.get(zufallszahl + 3))) {
                     zufallszahln = zufallszahl - 3;
-                } else if (!String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl + 6))) {
+                } else if (String.valueOf(zufallszahl + 6).equals(spielfeld.liste0.get(zufallszahl + 6))) {
                     zufallszahln = zufallszahl + 6;
                 }
             }
